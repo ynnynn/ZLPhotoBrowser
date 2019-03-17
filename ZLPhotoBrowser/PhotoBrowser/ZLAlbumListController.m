@@ -25,7 +25,7 @@
 {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-        self.navigationBar.barStyle = UIBarStyleBlack;
+        self.navigationBar.barStyle = UIBarStyleDefault;
         self.navigationBar.translucent = YES;
     }
     return self;
