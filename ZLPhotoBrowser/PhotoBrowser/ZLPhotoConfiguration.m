@@ -23,7 +23,7 @@
 {
     ZLPhotoConfiguration *configuration = [ZLPhotoConfiguration new];
     
-    configuration.statusBarStyle = UIStatusBarStyleDefault;
+    configuration.statusBarStyle = UIStatusBarStyleLightContent;
     configuration.maxSelectCount = 9;
     configuration.maxPreviewCount = 20;
     configuration.cellCornerRadio = .0;
