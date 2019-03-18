@@ -159,6 +159,11 @@
     _btnDone.frame = CGRectMake(frame.size.width-82-inset.right, 7, 70, 30);
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return _hideNavBar;
+}
+
 #pragma mark - 设备旋转
 - (void)deviceOrientationChanged:(NSNotification *)notify
 {
@@ -643,6 +648,8 @@
     
     _navView.hidden = _hideNavBar;
     _bottomView.hidden = _hideNavBar;
+    
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 #pragma mark - UICollectionDataSource
