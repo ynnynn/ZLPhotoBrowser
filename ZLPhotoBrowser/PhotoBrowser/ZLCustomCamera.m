@@ -663,7 +663,6 @@
     if (![captureDevice lockForConfiguration:&error]) {
         return;
     }
-    
     //聚焦模式
     if ([captureDevice isFocusModeSupported:focusMode]) {
         [captureDevice setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
