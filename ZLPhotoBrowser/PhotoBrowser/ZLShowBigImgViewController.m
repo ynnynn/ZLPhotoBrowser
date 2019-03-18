@@ -161,7 +161,7 @@
 
 - (BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return _hideNavBar;
 }
 
 #pragma mark - 设备旋转
