@@ -665,7 +665,7 @@
     }
     //聚焦模式
     if ([captureDevice isFocusModeSupported:focusMode]) {
-        [captureDevice setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+        [captureDevice setFocusMode:AVCaptureFocusModeAutoFocus];
     }
     //聚焦点
     if ([captureDevice isFocusPointOfInterestSupported]) {
