@@ -101,7 +101,7 @@
 {
     [super viewWillAppear:animated];
     
-    [UIApplication sharedApplication].statusBarHidden = YES;
+    [UIApplication sharedApplication].statusBarHidden = NO;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     if (!_isFirstAppear) {
@@ -157,6 +157,11 @@
     self.labPhotosBytes.frame = CGRectMake(CGRectGetMaxX(_btnOriginalPhoto.frame)+5, 7, 80, 30);
     _btnEdit.frame = CGRectMake(frame.size.width/2-30, 7, 60, 30);
     _btnDone.frame = CGRectMake(frame.size.width-82-inset.right, 7, 70, 30);
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 #pragma mark - 设备旋转
@@ -643,6 +648,8 @@
     
     _navView.hidden = _hideNavBar;
     _bottomView.hidden = _hideNavBar;
+    
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 #pragma mark - UICollectionDataSource
