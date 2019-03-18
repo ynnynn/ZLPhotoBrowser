@@ -101,7 +101,7 @@
 {
     [super viewWillAppear:animated];
     
-    [UIApplication sharedApplication].statusBarHidden = NO;
+    [UIApplication sharedApplication].statusBarHidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     if (!_isFirstAppear) {
