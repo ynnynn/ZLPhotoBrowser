@@ -630,7 +630,7 @@ typedef NS_ENUM(NSUInteger, SlideSelectType) {
     }
     if (nav.arrSelectedModels.count > 0) {
         ZLPhotoModel *sm = nav.arrSelectedModels.firstObject;
-        if (model.type != ZLAssetMediaTypeImage)
+        if (sm.type != ZLAssetMediaTypeVideo)
         {
             ShowToastLong(@"最多只能选择一个视频");
             return NO;
