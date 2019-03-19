@@ -660,6 +660,11 @@ double const ScalePhotoWidth = 1000;
         if (!selected) {
             //选中
             if (strongSelf.arrSelectedModels.count >= strongSelf.configuration.maxSelectCount) {
+                ShowToastLong(@"最多只能选择一个视频");
+                return;
+            }
+            if (strongSelf.arrSelectedModels.count > 0 && model.type != ZLAssetMediaTypeImage)
+            {
                 ShowToastLong(GetLocalLanguageTextValue(ZLPhotoBrowserMaxSelectCountText), strongSelf.configuration.maxSelectCount);
                 return;
             }
