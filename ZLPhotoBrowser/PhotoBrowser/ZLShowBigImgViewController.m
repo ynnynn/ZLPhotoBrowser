@@ -440,6 +440,11 @@
             ShowToastLong(GetLocalLanguageTextValue(ZLPhotoBrowserMaxSelectCountText), configuration.maxSelectCount);
             return;
         }
+        if (nav.arrSelectedModels.count > 0 && model.type != ZLAssetMediaTypeImage)
+        {
+            ShowToastLong(@"最多只能选择一个视频");
+            return;
+        }
         if (model.asset && ![ZLPhotoManager judgeAssetisInLocalAblum:model.asset]) {
             ShowToastLong(@"%@", GetLocalLanguageTextValue(ZLPhotoBrowserLoadingText));
             return;
