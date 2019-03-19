@@ -630,14 +630,14 @@ typedef NS_ENUM(NSUInteger, SlideSelectType) {
     }
     if (nav.arrSelectedModels.count > 0) {
         ZLPhotoModel *sm = nav.arrSelectedModels.firstObject;
-        if (sm.type != ZLAssetMediaTypeVideo)
-        {
-            ShowToastLong(@"最多只能选择一个视频");
-            return NO;
-        }
         if (!configuration.allowMixSelect &&
             ((model.type < ZLAssetMediaTypeVideo && sm.type == ZLAssetMediaTypeVideo) || (model.type == ZLAssetMediaTypeVideo && sm.type < ZLAssetMediaTypeVideo))) {
             ShowToastLong(@"%@", GetLocalLanguageTextValue(ZLPhotoBrowserCannotSelectVideo));
+            return NO;
+        }
+        if (sm.type == ZLAssetMediaTypeVideo)
+        {
+            ShowToastLong(@"最多只能选择一个视频");
             return NO;
         }
     }

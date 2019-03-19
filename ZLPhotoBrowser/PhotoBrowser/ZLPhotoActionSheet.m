@@ -660,21 +660,21 @@ double const ScalePhotoWidth = 1000;
         if (!selected) {
             //选中
             if (strongSelf.arrSelectedModels.count >= strongSelf.configuration.maxSelectCount) {
-                ShowToastLong(@"最多只能选择一个视频");
-                return;
-            }
-            if (strongSelf.arrSelectedModels.count > 0 && model.type != ZLAssetMediaTypeImage)
-            {
                 ShowToastLong(GetLocalLanguageTextValue(ZLPhotoBrowserMaxSelectCountText), strongSelf.configuration.maxSelectCount);
                 return;
             }
             if (strongSelf.arrSelectedModels.count > 0) {
                 ZLPhotoModel *sm = strongSelf.arrSelectedModels.firstObject;
                 if (!strongSelf.configuration.allowMixSelect &&
-                    ((model.type < ZLAssetMediaTypeVideo && sm.type == ZLAssetMediaTypeVideo) || (model.type == ZLAssetMediaTypeVideo && sm.type < ZLAssetMediaTypeVideo))) {
+                    ((model.type < ZLAssetMediaTypeVideo && sm.type == ZLAssetMediaTypeVideo) || (model.type == ZLAssetMediaTypeVideo/* && sm.type < ZLAssetMediaTypeVideo*/))) {
                     ShowToastLong(@"%@", GetLocalLanguageTextValue(ZLPhotoBrowserCannotSelectVideo));
                     return;
                 }
+//                if (model.type == ZLAssetMediaTypeVideo)
+//                {
+//                    ShowToastLong(@"%@", @"最多选择一个视频");
+//                    return;
+//                }
             }
             if (![ZLPhotoManager judgeAssetisInLocalAblum:model.asset]) {
                 ShowToastLong(@"%@", GetLocalLanguageTextValue(ZLPhotoBrowseriCloudPhotoText));
