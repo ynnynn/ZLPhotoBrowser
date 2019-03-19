@@ -635,11 +635,11 @@ typedef NS_ENUM(NSUInteger, SlideSelectType) {
             ShowToastLong(@"%@", GetLocalLanguageTextValue(ZLPhotoBrowserCannotSelectVideo));
             return NO;
         }
-//        if (sm.type == ZLAssetMediaTypeVideo)
-//        {
-//            ShowToastLong(@"最多只能选择一个视频");
-//            return NO;
-//        }
+        if (sm.type == ZLAssetMediaTypeVideo)
+        {
+            ShowToastLong(@"最多只能选择一个视频");
+            return NO;
+        }
     }
     if (![ZLPhotoManager judgeAssetisInLocalAblum:model.asset]) {
         ShowToastLong(@"%@", GetLocalLanguageTextValue(ZLPhotoBrowseriCloudPhotoText));
